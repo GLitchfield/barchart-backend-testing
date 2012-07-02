@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/realtime/!svn/ver/8657/barchart-backend-testing/src/test/java/com/barchart/backend/testing/db/tools
+END
+SimpleDBClientFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/repos/realtime/!svn/ver/8679/barchart-backend-testing/src/test/java/com/barchart/backend/testing/db/tools/SimpleDBClientFactory.java
+END
+DeleteDuplicateAccounts.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/realtime/!svn/ver/8679/barchart-backend-testing/src/test/java/com/barchart/backend/testing/db/tools/DeleteDuplicateAccounts.java
+END

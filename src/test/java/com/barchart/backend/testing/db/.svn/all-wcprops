@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/realtime/!svn/ver/8523/barchart-backend-testing/src/test/java/com/barchart/backend/testing/db
+END
+TestJSONPrefMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/realtime/!svn/ver/8682/barchart-backend-testing/src/test/java/com/barchart/backend/testing/db/TestJSONPrefMap.java
+END
+TestSimpleDBJacksonModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/realtime/!svn/ver/8657/barchart-backend-testing/src/test/java/com/barchart/backend/testing/db/TestSimpleDBJacksonModule.java
+END
+SimpleDBJacksonModuleFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/repos/realtime/!svn/ver/8657/barchart-backend-testing/src/test/java/com/barchart/backend/testing/db/SimpleDBJacksonModuleFactory.java
+END
+BuildBackendStressTestDB.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/realtime/!svn/ver/8523/barchart-backend-testing/src/test/java/com/barchart/backend/testing/db/BuildBackendStressTestDB.java
+END
+TestJSONPrefKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/realtime/!svn/ver/8682/barchart-backend-testing/src/test/java/com/barchart/backend/testing/db/TestJSONPrefKey.java
+END

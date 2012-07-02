@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/realtime/!svn/ver/8416/barchart-backend-testing
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/realtime/!svn/ver/8682/barchart-backend-testing/pom.xml
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/realtime/!svn/ver/8417/barchart-backend-testing/.project
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/realtime/!svn/ver/8417/barchart-backend-testing/.classpath
+END
