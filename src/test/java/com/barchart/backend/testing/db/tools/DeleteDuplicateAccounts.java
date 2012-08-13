@@ -42,7 +42,7 @@ public class DeleteDuplicateAccounts {
 				AWSclient, actVolume, query);
 
 		final Map<String, List<Props>> byName = new HashMap<String, List<Props>>();
-
+		
 		// Sort by account name
 		for (final Entry<String, List<Props>> entry : accountData.entrySet()) {
 
@@ -53,7 +53,7 @@ public class DeleteDuplicateAccounts {
 
 			final String username = entry.getValue().get(0).get("username")
 					.toString();
-
+			
 			if (!byName.containsKey(username)) {
 				byName.put(username, new LinkedList<Props>());
 			}
@@ -61,16 +61,19 @@ public class DeleteDuplicateAccounts {
 			byName.get(username).add(entry.getValue().get(0));
 
 		}
-
+		
 		final List<String> toDelete = new ArrayList<String>();
 
 		final String prefQuery = "where itemName() like ";
-		final Map<String, List<Map<String, List<Props>>>> prefs = new HashMap<String, List<Map<String, List<Props>>>>();
+		final Map<String, List<Map<String, List<Props>>>> prefs = 
+				new HashMap<String, List<Map<String, List<Props>>>>();
 
+		StringBuilder sb = new StringBuilder();
+		
+		/* Query each username with duplicates and store */
 		for (final Entry<String, List<Props>> entry : byName.entrySet()) {
 			if (entry.getValue().size() > 1) {
 
-				// Just targeting QUD users for this run
 				if (entry.getKey().startsWith("QUD")
 						|| entry.getValue().get(0).get("vendor_id")
 								.equals("coffeenetwork")) {
@@ -78,30 +81,35 @@ public class DeleteDuplicateAccounts {
 					prefs.put(entry.getKey(),
 							new ArrayList<Map<String, List<Props>>>());
 
-					final StringBuilder sb = new StringBuilder();
 					sb.append("Name: " + entry.getKey() + "\n");
 					for (final Props p : entry.getValue()) {
 						sb.append("\t" + printProp(p) + "\n");
 
 						toDelete.add(p.get("account_id").toString());
 
-						prefs.get(entry.getKey()).add(
+						Map<String, List<Props>> tempProps = 
 								VolumeUtil.selectItems(AWSclient, prefVolume,
 										prefQuery + "'" + p.get("account_id")
-												+ "%'" + query));
-
+												+ "%'" + query);
+						
+						if(tempProps.isEmpty()) {
+							
+							toDelete.add((String) p.get("account_id"));
+						}
+						
+						prefs.get(entry.getKey()).add(tempProps);
 					}
-					// System.out.println(sb.toString());
-
+					
+					/* Prints full map */
+					System.out.println(sb.toString());
 				}
-
 			}
 		}
-
+		
 		for (final Entry<String, List<Map<String, List<Props>>>> entry : prefs
 				.entrySet()) {
 
-			final StringBuilder sb = new StringBuilder();
+			sb = new StringBuilder();
 
 			sb.append(entry.getKey() + "\n");
 
@@ -115,25 +123,31 @@ public class DeleteDuplicateAccounts {
 					for (final Props prop : prefMap.getValue()) {
 						sb.append("\t\t" + printProp(prop) + "\n");
 					}
-
 				}
-
 			}
 
 			System.out.println(sb.toString());
 
 		}
-
-		final String id = "9522c5ad-6357-4e5c-bfa4-74ab4199e1bd";
-
-		// for(String id : toDelete) {
-		System.out.println("Deleting " + id);
-		for (int i = 0; i < actVolume.getDomainCount(); i++) {
-			final DeleteAttributesRequest delete = new DeleteAttributesRequest(
-					actVolume.getDomainName(i), id);
-			AWSclient.deleteAttributes(delete);
-		}
-		// }
+		
+		/* Batch Delete */
+//		for(String id : toDelete) {
+//			System.out.println("Deleting " + id);
+//			for (int i = 0; i < actVolume.getDomainCount(); i++) {
+//				final DeleteAttributesRequest delete = new DeleteAttributesRequest(
+//						actVolume.getDomainName(i), id);
+//				AWSclient.deleteAttributes(delete);
+//			}
+//		}
+		
+		/* For individual deletes */
+//		String singleDelete = "c11987b5-6ace-4a42-93d5-bc37e0a83281";
+//		System.out.println("Deleting " + singleDelete);
+//		for (int i = 0; i < actVolume.getDomainCount(); i++) {
+//			final DeleteAttributesRequest delete = new DeleteAttributesRequest(
+//					actVolume.getDomainName(i), singleDelete);
+//			AWSclient.deleteAttributes(delete);
+//		}
 
 	}
 
