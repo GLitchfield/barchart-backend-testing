@@ -141,7 +141,7 @@ public class DeleteDuplicateAccounts {
 //		}
 		
 		/* For individual deletes */
-//		String singleDelete = "c11987b5-6ace-4a42-93d5-bc37e0a83281";
+//		String singleDelete = "b4de1854-229d-4bad-bb1f-082e4eb83dee";
 //		System.out.println("Deleting " + singleDelete);
 //		for (int i = 0; i < actVolume.getDomainCount(); i++) {
 //			final DeleteAttributesRequest delete = new DeleteAttributesRequest(

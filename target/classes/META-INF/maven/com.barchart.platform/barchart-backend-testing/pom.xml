@@ -1,0 +1,155 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+ 	<modelVersion>4.0.0</modelVersion>
+  
+	<parent>
+		<groupId>com.barchart.platform</groupId>
+		<artifactId>barchart-backend</artifactId>
+		<version>2.0.8</version>
+	</parent>
+  
+	<artifactId>barchart-backend-testing</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+  
+  	<scm>
+		<url>https://svn.barchart.com/repos/realtime/platform/trunk/barchart-platform/barchart-backend-testing</url>
+		<connection>scm:svn:https://svn.barchart.com/repos/realtime/platform/trunk/barchart-platform/barchart-backend-testing</connection>
+		<developerConnection>scm:svn:https://svn.barchart.com/repos/realtime/platform/trunk/barchart-platform/barchart-backend-testing</developerConnection>
+	</scm>
+  
+  	<properties>
+
+		<restletVersion>2.1-RC4</restletVersion>
+
+		<hazelVersion>2.0.1</hazelVersion>
+
+		<amazonVersion>1.3.8</amazonVersion>
+		
+		<backendUnitVersion>2.2.14</backendUnitVersion>
+
+	</properties>
+  
+
+	<dependencies>
+		
+		<!-- backend -->
+		
+		<dependency>
+			<groupId>com.barchart.platform</groupId>
+			<artifactId>barchart-backend-api</artifactId>
+			<version>${backendUnitVersion}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.barchart.platform</groupId>
+			<artifactId>barchart-backend-client</artifactId>
+			<version>${backendUnitVersion}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.barchart.platform</groupId>
+			<artifactId>barchart-backend-server</artifactId>
+			<version>${backendUnitVersion}</version>
+		</dependency>
+		
+		<!-- restlet volumes -->
+		<dependency>
+			<groupId>com.barchart.platform</groupId>
+			<artifactId>barchart-restlet-simpledb</artifactId>
+			<version>[2.1.0,2.2.0)</version>
+		</dependency>
+		
+		<!-- logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		
+		<!-- amazon -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>${amazonVersion}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.codehaus.jackson</groupId>
+					<artifactId>jackson-core-asl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.codehaus.jackson</groupId>
+					<artifactId>jackson-mapper-asl</artifactId>
+				</exclusion>
+			</exclusions> 
+		</dependency>
+		
+		<!-- restlet release -->
+		<dependency>
+			<groupId>org.restlet.jee</groupId>
+			<artifactId>org.restlet</artifactId>
+			<version>${restletVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.restlet.jee</groupId>
+			<artifactId>org.restlet.ext.jackson</artifactId>
+			<version>${restletVersion}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.codehaus.jackson</groupId>
+					<artifactId>jackson-core-asl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.codehaus.jackson</groupId>
+					<artifactId>jackson-mapper-asl</artifactId>
+				</exclusion>
+			</exclusions> 
+		</dependency>
+		<dependency>
+			<groupId>org.restlet.jse</groupId>
+			<artifactId>org.restlet.ext.ssl</artifactId>
+			<version>${restletVersion}</version>
+		</dependency>
+
+		<!-- restlet testing server -->
+		<dependency>
+			<groupId>org.restlet.jse</groupId>
+			<artifactId>org.restlet.ext.simple</artifactId>
+			<version>${restletVersion}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- restlet override -->
+		<dependency>
+			<groupId>com.barchart.wrap</groupId>
+			<artifactId>barchart-wrap-jackson</artifactId>
+			<version>1.8.6-build001</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+			
+		
+	</dependencies>
+
+  
+</project>

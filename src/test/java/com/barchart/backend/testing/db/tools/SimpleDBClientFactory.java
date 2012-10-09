@@ -13,12 +13,10 @@ public class SimpleDBClientFactory {
 	public static AmazonSimpleDBClient make() {
 		
 		/** User: Gavin.Litchfield */
-		final String id = "AKIAJXGV7WFHIOB7P44Q";
-		final String key = "A+qCRlLZnrfskyi6CriJTqVBI/wXbOiWFDXhHDni";
+		final String id = System.getProperty(AWS_ID);
+		final String key = System.getProperty(AWS_SECRECT);
 		final String config = "simple_config";
 		
-		System.setProperty(AWS_ID, id);
-		System.setProperty(AWS_SECRECT, key);
 		System.setProperty(PROP_CONFIG_DOMAIN, config);
 		
 		final AWSCredentials creds = new BasicAWSCredentials(id, key);
