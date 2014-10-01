@@ -25,4 +25,19 @@ public class SimpleDBClientFactory {
 		
 	}
 	
+	public static AmazonSimpleDBClient make(String id, String key) {
+		
+		/** User: Gavin.Litchfield */
+		final String config = "simple_config";
+		
+		System.setProperty(AWS_ID, id);
+		System.setProperty(AWS_SECRECT, key);
+		System.setProperty(PROP_CONFIG_DOMAIN, config);
+		
+		final AWSCredentials creds = new BasicAWSCredentials(id, key);
+		
+		return new AmazonSimpleDBClient(creds);
+		
+	}
+	
 }

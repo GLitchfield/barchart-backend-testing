@@ -28,7 +28,8 @@ public class DeleteDuplicateAccounts {
 
 	public static void main(final String[] args) throws Exception {
 
-		AWSclient = SimpleDBClientFactory.make();
+		AWSclient = SimpleDBClientFactory.make("AKIAJYUTSX5C4HB5GZMA",
+				 "oCa9h7Qgwv7jTPL1d7g3BM0S/P0e5fr1bR41e3lg");
 
 		final Map<String, Volume> volMap = getVolumeMap();
 
@@ -74,9 +75,10 @@ public class DeleteDuplicateAccounts {
 		for (final Entry<String, List<Props>> entry : byName.entrySet()) {
 			if (entry.getValue().size() > 1) {
 
-				if (entry.getKey().startsWith("QUD")
-						|| entry.getValue().get(0).get("vendor_id")
-								.equals("coffeenetwork")) {
+				if (entry.getKey().startsWith("QUD")) {
+//						|| entry.getValue().get(0).get("vendor_id")
+//							//	.equals("coffeenetwork")) {
+//								.equals("Quodd")) {
 
 					prefs.put(entry.getKey(),
 							new ArrayList<Map<String, List<Props>>>());
@@ -93,7 +95,6 @@ public class DeleteDuplicateAccounts {
 												+ "%'" + query);
 						
 						if(tempProps.isEmpty()) {
-							
 							toDelete.add((String) p.get("account_id"));
 						}
 						
@@ -106,30 +107,33 @@ public class DeleteDuplicateAccounts {
 			}
 		}
 		
-		for (final Entry<String, List<Map<String, List<Props>>>> entry : prefs
-				.entrySet()) {
-
-			sb = new StringBuilder();
-
-			sb.append(entry.getKey() + "\n");
-
-			for (final Map<String, List<Props>> prefList : entry.getValue()) {
-
-				for (final Entry<String, List<Props>> prefMap : prefList
-						.entrySet()) {
-
-					sb.append("\t" + prefMap.getKey() + "\n");
-
-					for (final Props prop : prefMap.getValue()) {
-						sb.append("\t\t" + printProp(prop) + "\n");
-					}
-				}
-			}
-
-			System.out.println(sb.toString());
-
-		}
+//		for (final Entry<String, List<Map<String, List<Props>>>> entry : prefs
+//				.entrySet()) {
+//
+//			sb = new StringBuilder();
+//
+//			sb.append(entry.getKey() + "\n");
+//
+//			for (final Map<String, List<Props>> prefList : entry.getValue()) {
+//
+//				for (final Entry<String, List<Props>> prefMap : prefList
+//						.entrySet()) {
+//
+//					sb.append("\t" + prefMap.getKey() + "\n");
+//
+//					for (final Props prop : prefMap.getValue()) {
+//						sb.append("\t\t" + printProp(prop) + "\n");
+//					}
+//				}
+//			}
+//
+//			System.out.println(sb.toString());
+//
+//		}
 		
+		
+		/* THIS DELETES EVERYTHING - BE VERY CAREFUL */
+		/* WHY DO WE EVEN HAVE THIS??? */
 		/* Batch Delete */
 //		for(String id : toDelete) {
 //			System.out.println("Deleting " + id);
@@ -141,7 +145,7 @@ public class DeleteDuplicateAccounts {
 //		}
 		
 		/* For individual deletes */
-//		String singleDelete = "b4de1854-229d-4bad-bb1f-082e4eb83dee";
+//		String singleDelete = "07f1b263-e723-4fa3-940f-1251b1adbd77";
 //		System.out.println("Deleting " + singleDelete);
 //		for (int i = 0; i < actVolume.getDomainCount(); i++) {
 //			final DeleteAttributesRequest delete = new DeleteAttributesRequest(
